@@ -11,7 +11,7 @@ function reloadSystemd() {
 }
 
 SPATH=$(dirname "$0") # Path to the script
-REMOTE_URL=https://raw.githubusercontent.com/jacklul/pihole-updatelists # Remote URL that serves raw files from the repository
+REMOTE_URL=https://raw.githubusercontent.com/devstuff-org/pihole-updatelists # Remote URL that serves raw files from the repository
 GIT_BRANCH=master # Git branch to use, user can specify custom branch as first argument
 SYSTEMD=$(pidof systemd >/dev/null && echo "1" || echo "0") # Is systemd available?
 SYSTEMD_INSTALLED=$([ -f "/etc/systemd/system/pihole-updatelists.timer" ] && echo "1" || echo "0") # Is systemd timer installed already?
@@ -158,7 +158,7 @@ if [ "$SYSTEMD" == 1 ]; then
 else
 	if [ ! -f "/etc/cron.d/pihole-updatelists" ]; then
 		echo "# Pi-hole's Lists Updater by Jack'lul
-# https://github.com/jacklul/pihole-updatelists
+# https://github.com/devstuff-org/pihole-updatelists, forked from https://github.com/jacklul/pihole-updatelists
 
 #30 3 * * 6   root   /usr/local/sbin/pihole-updatelists
 " > /etc/cron.d/pihole-updatelists
